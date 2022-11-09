@@ -12,6 +12,7 @@ function generateTable() {
     const tblhead = document.createElement("thead");
     const tblBody = document.createElement("tbody");
 
+
     // creating all cells
     for (let i = 0; i < 30; i++) {
         // creates a table row

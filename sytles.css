@@ -10,3 +10,5 @@ h1 {
 button{
     color: darkgreen;
 }
+
+tr:hover{background-color: darkorange}
