@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded",(event)=>{
         genTxt();
     })
     document.getElementById("button1").addEventListener("click", (event)=>{
-
     })
 })
 
