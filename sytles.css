@@ -1,14 +1,20 @@
 body {
-    background-color: lightblue;
+    background-color: mintcream;
 }
 
 h1 {
-    color: darkorchid;
+    color: limegreen;
     font-size: 50px;
 }
 
-button{
-    color: darkgreen;
+button {
+    color: black;
 }
 
-tr:hover{background-color: darkorange}
+tr:hover {
+    color: limegreen;
+}
+
+td:hover {
+    color: darkmagenta;
+}
