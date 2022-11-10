@@ -51,7 +51,6 @@ function gentbl() {
         }
     }
 
-
 }
 
 function textunder() {
