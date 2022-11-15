@@ -48,16 +48,22 @@ function textunder() {
     document.getElementById("t2").innerHTML = "Currency table";
 }
 function swap() {
-    var c1 = String(document.getElementById('c1').value);
-    var zwi = c1;
-    document.getElementById("c1").value = document.getElementById('c2').value;
-    document.getElementById('c2').value = zwi;
-    document.getElementById("ec").value = 1 / document.getElementById("ec").value;
+    var c1 = document.getElementById('c1');
+    var c2 = document.getElementById('c2');
+    var ec = document.getElementById('ec');
+    var zwi = c1.value;
+    c1.value = c2.value;
+    c2.value = zwi;
+    ec.value = String((1 / +ec.value).toFixed(4));
 }
 document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("button1").addEventListener("click", function (event) {
         event.preventDefault();
+        del();
         swap();
+        genTxt();
+        gentbl();
+        textunder();
     });
     document.getElementById("button2").addEventListener("click", function (event) {
         event.preventDefault();

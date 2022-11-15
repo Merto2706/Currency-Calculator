@@ -57,20 +57,27 @@ function textunder() {
     document.getElementById("t2").innerHTML = "Currency table";
 }
 
+
 function swap() {
-    let c1: String = String((document.getElementById('c1') as HTMLInputElement).value);
-    let zwi = c1;
-    document.getElementById("c1").value = document.getElementById('c2').value;
-    document.getElementById('c2').value = zwi;
-    document.getElementById("ec").value = 1 / document.getElementById("ec").value;
+    let c1 = (document.getElementById('c1') as HTMLInputElement);
+    let c2 = (document.getElementById('c2') as HTMLInputElement);
+    let ec = (document.getElementById('ec') as HTMLInputElement);
+
+    let zwi = c1.value;
+    c1.value = c2.value;
+    c2.value = zwi;
+    ec.value = String((1 /  +ec.value).toFixed(4));
 
 }
-
 
 document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("button1").addEventListener("click", (event) => {
         event.preventDefault();
+        del();
         swap();
+        genTxt();
+        gentbl();
+        textunder();
     })
     document.getElementById("button2").addEventListener("click", (event) => {
         event.preventDefault();
