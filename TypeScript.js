@@ -1,7 +1,7 @@
 function genTxt() {
-    var c1 = String(document.getElementById('c1').value);
-    var c2 = String(document.getElementById('c2').value);
-    var ec = String(document.getElementById('ec').value);
+    var c1 = document.getElementById('c1').value;
+    var c2 = document.getElementById('c2').value;
+    var ec = document.getElementById('ec').value;
     document.getElementById("t1").innerHTML = "Exchange rate " + c2 + "/" + c1 + " = " + ec;
 }
 function del() {
@@ -24,22 +24,28 @@ function gentbl() {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         if (i < 11) {
-            cell1.innerHTML = i;
-            cell2.innerHTML = (i * ec).toFixed(2);
-            cell1.style.background = "aquamarine"; //falsch?
-            cell2.style.background = "aquamarine"; //falsch?
+            if (i % 2 == 0) {
+                row.classList.add("bg-red", "dark");
+            }
+            row.classList.add("bg-red");
+            cell1.innerText = i.toString();
+            cell2.innerText = (i * ec).toFixed(2);
         }
         else if (10 < i && i < 20) {
-            cell1.innerHTML = ((i - 9) * 10);
-            cell2.innerHTML = (((i - 9) * 10) * ec).toFixed(2);
-            cell1.style.background = "blueviolet";
-            cell2.style.background = "blueviolet";
+            if (i % 2 == 0) {
+                row.classList.add("bg-vio", "dark");
+            }
+            row.classList.add("bg-vio");
+            cell1.innerText = ((i - 9) * 10).toString();
+            cell2.innerText = (((i - 9) * 10) * ec).toFixed(2);
         }
         else {
-            cell1.innerHTML = (c * 100);
-            cell2.innerHTML = ((c * 100) * ec).toFixed(2);
-            cell1.style.background = "goldenrod";
-            cell2.style.background = "goldenrod";
+            if (i % 2 == 0) {
+                row.classList.add("bg-green", "dark");
+            }
+            row.classList.add("bg-green");
+            cell1.innerText = (c * 100).toString();
+            cell2.innerText = ((c * 100) * ec).toFixed(2);
             c++;
         }
     }

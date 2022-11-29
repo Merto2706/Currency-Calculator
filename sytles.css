@@ -2,6 +2,13 @@ body {
     background-color: mintcream;
 }
 
+tr:hover{
+    background-color: pink;
+}
+td:hover{
+    background-color: deepskyblue;
+}
+
 h1 {
     color: limegreen;
     font-size: 50px;
@@ -11,10 +18,20 @@ button {
     color: black;
 }
 
-tr:hover {
-    color: limegreen;
+.dark {
+    filter: brightness(0.7);
 }
 
-td:hover {
-    color: darkmagenta;
+.bg-red {
+    background-color: red;
+    color: white;
 }
+.bg-vio {
+    background-color: darkviolet;
+    color: white;
+}
+.bg-green {
+    background-color: greenyellow;
+    color: white;
+}
+
