@@ -10,6 +10,18 @@ function del() {
     document.getElementById("tbl1").innerHTML = "";
 }
 
+function switchCur() {
+    let  xrate = (document.getElementById('ec') as HTMLInputElement);
+    let cur1 = (document.getElementById('c1') as HTMLInputElement);
+    let cur2 = (document.getElementById('c2') as HTMLInputElement);
+    let temp = cur1.value;
+
+    cur1.value = cur2.value;
+    cur2.value = temp;
+    xrate.value = String((1 /  + xrate.value).toFixed(4));
+    gentbl();
+}
+
 function gentbl() {
 
     let c1: string = String((document.getElementById('c1') as HTMLInputElement).value);
@@ -62,37 +74,18 @@ function gentbl() {
 
 }
 
-function textunder() {
-    document.getElementById("t2").innerHTML = "Currency table";
-}
-
-
-function swap() {
-    let c1 = (document.getElementById('c1') as HTMLInputElement);
-    let c2 = (document.getElementById('c2') as HTMLInputElement);
-    let ec = (document.getElementById('ec') as HTMLInputElement);
-
-    let zwi = c1.value;
-    c1.value = c2.value;
-    c2.value = zwi;
-    ec.value = String((1 /  +ec.value).toFixed(4));
-
-}
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("button1").addEventListener("click", (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('button2')!.addEventListener("click", (event) => {
         event.preventDefault();
         del();
-        swap();
         genTxt();
         gentbl();
-        textunder();
+
     })
-    document.getElementById("button2").addEventListener("click", (event) => {
+
+    document.getElementById('button1')!.addEventListener("click", (event) => {
         event.preventDefault();
         del();
-        genTxt();
-        gentbl();
-        textunder();
+        switchCur();
     })
 })

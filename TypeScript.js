@@ -7,6 +7,16 @@ function genTxt() {
 function del() {
     document.getElementById("tbl1").innerHTML = "";
 }
+function switchCur() {
+    var xrate = document.getElementById('ec');
+    var cur1 = document.getElementById('c1');
+    var cur2 = document.getElementById('c2');
+    var temp = cur1.value;
+    cur1.value = cur2.value;
+    cur2.value = temp;
+    xrate.value = String((1 / +xrate.value).toFixed(4));
+    gentbl();
+}
 function gentbl() {
     var c1 = String(document.getElementById('c1').value);
     var c2 = String(document.getElementById('c2').value);
@@ -50,32 +60,16 @@ function gentbl() {
         }
     }
 }
-function textunder() {
-    document.getElementById("t2").innerHTML = "Currency table";
-}
-function swap() {
-    var c1 = document.getElementById('c1');
-    var c2 = document.getElementById('c2');
-    var ec = document.getElementById('ec');
-    var zwi = c1.value;
-    c1.value = c2.value;
-    c2.value = zwi;
-    ec.value = String((1 / +ec.value).toFixed(4));
-}
-document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementById("button1").addEventListener("click", function (event) {
+document.addEventListener('DOMContentLoaded', function (event) {
+    document.getElementById('button2').addEventListener("click", function (event) {
         event.preventDefault();
         del();
-        swap();
         genTxt();
         gentbl();
-        textunder();
     });
-    document.getElementById("button2").addEventListener("click", function (event) {
+    document.getElementById('button1').addEventListener("click", function (event) {
         event.preventDefault();
         del();
-        genTxt();
-        gentbl();
-        textunder();
+        switchCur();
     });
 });
